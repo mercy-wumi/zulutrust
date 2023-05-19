@@ -20,6 +20,8 @@
 
 body {
   background-color: var(--backgroundcolor);
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 
@@ -1371,7 +1373,7 @@ footer>.rights-reserved>p {
   width: 260px;
   position: fixed;
   top: 0;
-  left: 0;
+  /* left: 0; */
 }
 
 .logoZulu {
@@ -1435,6 +1437,7 @@ ul li a {
   position: fixed;
   top: 0;
   width: calc(100% - 260px);
+  max-width: calc(1400px - 260px);
   background: #261743;
 }
 

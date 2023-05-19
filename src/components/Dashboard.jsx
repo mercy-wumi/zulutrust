@@ -11,13 +11,16 @@ import disputes from '../assets/images/disputes.png'
 import copy from '../assets/images/copy.png'
 import wallet from '../assets/images/wallet.png'
 import arrowDown from '../assets/images/arrowdown.png'
+import { Link } from 'react-router-dom'
 
 const Dashboard = () => {
     return (
         <div className="dashboard-page">
             <div className="sidebar">
                 <div className="logoZulu">
-                    <img src={Zulu} alt="Zulu Trust logo" />
+                    <Link to='/'>
+                        <img src={Zulu} alt="Zulu Trust logo" />
+                    </Link>
                 </div>
                 <ul className="menu-one">
                     <li className="active">
