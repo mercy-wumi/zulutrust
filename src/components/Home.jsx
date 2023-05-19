@@ -1,4 +1,5 @@
-import React from 'react'
+import { useState } from 'react'
+import { Navigate } from 'react-router-dom'
 import Adams from '../assets/images/Adams.jpg'
 import Zulu from '../assets/images/Zulu trust.png'
 import Angel from '../assets/images/Angel.jpg'
@@ -11,8 +12,24 @@ import CEO from '../assets/images/CEO.jpg'
 import Ritaa from '../assets/images/ritaa.jpg'
 
 const Home = () => {
+    const [connected, setConnected] = useState(false)
+    const handleConnect = () => {
+        if (window.ethereum) {
+            // Do something 
+            window.ethereum.request({ method: 'eth_requestAccounts' })
+                .then(res => {
+                    // Return the address of the wallet
+                    console.log(res)
+                    alert('Connected!')
+                    setConnected(true)
+                })
+        } else {
+            alert("install metamask extension!!")
+        }
+    }
     return (
         <>
+            {connected && <Navigate to='/dashboard' replace={true} />}
             <nav>
                 <div className="containe">
                     <div className="containerflex">
@@ -30,7 +47,7 @@ const Home = () => {
                         </div>
 
                         <div className="wallet">
-                            <button className="wallet-desktop" type="button" id='open-mobile' >Connect Wallet
+                            <button className="wallet-desktop" type="button" id='open-mobile' onClick={handleConnect}>Connect Wallet
                             </button>
                         </div>
                     </div>

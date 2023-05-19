@@ -13,6 +13,42 @@ import wallet from '../assets/images/wallet.png'
 import arrowDown from '../assets/images/arrowdown.png'
 import { Link } from 'react-router-dom'
 
+const datas = [
+    {
+        tranType: 'purchase',
+        date: '2013-02-13',
+        amount: '3.87 BTC',
+        buyer: '0xr...ar45',
+        seller: '0xr...ar45',
+        status: 'success'
+    },
+    {
+        tranType: 'sale',
+        date: '2013-02-13',
+        amount: '3.87 BTC',
+        buyer: '0xr...ar45',
+        seller: '0xr...ar45',
+        status: 'success'
+    },
+    {
+        tranType: 'purchase',
+        date: '2013-02-13',
+        amount: '3.87 BTC',
+        buyer: '0xr...ar45',
+        seller: '0xr...ar45',
+        status: 'success'
+    },
+    {
+        tranType: 'sale',
+        date: '2013-02-13',
+        amount: '3.87 BTC',
+        buyer: '0xr...ar45',
+        seller: '0xr...ar45',
+        status: 'success'
+    },
+
+]
+
 const Dashboard = () => {
     return (
         <div className="dashboard-page">
@@ -106,52 +142,26 @@ const Dashboard = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className="row">
-                                    <td>Purchase</td>
-                                    <td>2022-02-23</td>
-                                    <td>3.87 BTC</td>
-                                    <td>
-                                        <div className="copy">
-                                            <span>0xr...ar45</span>
-                                            <img src={copy} alt="click to copy" />
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div className="copy">
-                                            <span>0xr...ar45</span>
-                                            <img src={copy} alt="click to copy" />
-                                        </div>
-                                    </td>
-                                    <td className="success">Success</td>
-                                </tr>
-                                <tr>
-                                    <td>Purchase</td>
-                                    <td>2022-02-23</td>
-                                    <td>3.87 BTC</td>
-                                    <td>
-                                        <img src={copy} alt="click to copy" />
-                                        <span>0xr...ar45</span>
-                                    </td>
-                                    <td>
-                                        <img src={copy} alt="click to copy" />
-                                        <span>0xr...ar45</span>
-                                    </td>
-                                    <td className="success">Success</td>
-                                </tr>
-                                <tr>
-                                    <td>Purchase</td>
-                                    <td>2022-02-23</td>
-                                    <td>3.87 BTC</td>
-                                    <td>
-                                        <img src={copy} alt="click to copy" />
-                                        <span>0xr...ar45</span>
-                                    </td>
-                                    <td>
-                                        <img src={copy} alt="click to copy" />
-                                        <span>0xr...ar45</span>
-                                    </td>
-                                    <td className="success">Success</td>
-                                </tr>
+                                {datas.map((data, index) => (
+                                    <tr className="row" key={index}>
+                                        <td>{data.tranType}</td>
+                                        <td>{data.date}</td>
+                                        <td>{data.amount}</td>
+                                        <td>
+                                            <div className="copy">
+                                                <span>{data.buyer}</span>
+                                                <img src={copy} alt="click to copy" />
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div className="copy">
+                                                <span>{data.seller}</span>
+                                                <img src={copy} alt="click to copy" />
+                                            </div>
+                                        </td>
+                                        <td className="success">Success</td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
